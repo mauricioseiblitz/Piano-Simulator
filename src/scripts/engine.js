@@ -1,0 +1,1 @@
+alert("Piano Simulator is running!");
