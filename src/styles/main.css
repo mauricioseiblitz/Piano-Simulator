@@ -60,7 +60,7 @@ header .column span {
 
 .keys-check input:checked::before {
     left: 2.1rem;
-    background-color: #8c8c8c;
+    background-color: #fff;
 }
 
 .piano-keys {
