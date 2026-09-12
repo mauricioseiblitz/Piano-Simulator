@@ -8,6 +8,9 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
     width: 780px;
     border-radius: 20px;
     padding: 35px 40px;
@@ -80,7 +83,7 @@ header .column span {
 .piano-keys .white {
     width: 70px;
     height: 230px;
-    border: 1px solid red;
+    border: 1px solid black;
     border-radius: 8px;
     background: linear-gradient(#fff 96%, #eee 4%);
 }
@@ -89,8 +92,8 @@ header .column span {
     width: 44px;
     height: 140px;
     z-index: 2;
-    margin: 0 22px 0 -22px;
-    border: 1px solid red;
+    margin: 0 -22px 0 -22px;
+    border: 1px solid black;
     border-radius: 0 0 5px 5px;
     background: linear-gradient(#000 96%, #333 4%);
 }
