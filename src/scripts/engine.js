@@ -5,7 +5,8 @@ console.log(keySelected);
 let audio = new Audio("src/audio/a.wav");
 
 const playSound = (key) => {
-    audio.currentTime = 0;
+    //audio.currentTime = 0;
+    audio.src = `src/audio/${key}.wav`;
     audio.play();
 };
 
