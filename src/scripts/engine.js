@@ -8,6 +8,14 @@ const playSound = (key) => {
     //audio.currentTime = 0;
     audio.src = `src/audio/${key}.wav`;
     audio.play();
+
+    const keyPressed = document.querySelector(`[data-key="${key}"]`);
+    console.log(keyPressed.textContent + " funcionou");
+
+    keyPressed.classList.add("active");
+    setTimeout(() => {
+    keyPressed.classList.remove("active");
+    }, 150);
 };
 
 // for(let i = 0; i < keySelected.length; i++) {
@@ -22,10 +30,6 @@ keySelected.forEach((key) => {
 });
 
 document.addEventListener("keydown", (e) => {
-    try {
         playSound(e.key);
-        console.log("Funcionou");
-    } catch (error) {
-        console.log("Tecla não disponível");
-    }
+        console.log(e.key + " esta usando o keydown");
 });
