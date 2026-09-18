@@ -20,3 +20,12 @@ keySelected.forEach((key) => {
         playSound(key.dataset.key);
     });
 });
+
+document.addEventListener("keydown", (e) => {
+    try {
+        playSound(e.key);
+        console.log("Funcionou");
+    } catch (error) {
+        console.log("Tecla não disponível");
+    }
+});
