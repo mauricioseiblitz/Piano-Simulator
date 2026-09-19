@@ -1,6 +1,8 @@
 const keySelected = document.querySelectorAll(".piano-keys .key");
+const volume = document.querySelector(".volume-slider input");
 
 console.log(keySelected);
+console.log(volume);
 
 let audio = new Audio("src/audio/a.wav");
 let mappedKeys = [];
@@ -39,4 +41,9 @@ document.addEventListener("keydown", (e) => {
         playSound(e.key);
         console.log(e.key + " esta usando o keydown");
     }
+});
+
+document.addEventListener("input", (e) => {
+    console.log(e.target.value);
+    audio.volume = e.target.value;
 });
