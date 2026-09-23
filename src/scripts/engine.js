@@ -2,30 +2,20 @@ const keySelected = document.querySelectorAll(".piano-keys .key");
 const volume = document.querySelector(".volume-slider input");
 const checkedKeys = document.querySelector(".keys-check input");
 
-console.log(keySelected);
-console.log(volume);
-console.log(checkedKeys);
-
 let audio = new Audio("src/audio/a.wav");
 let mappedKeys = [];
 
 const playSound = (key) => {
-    //audio.currentTime = 0;
     audio.src = `src/audio/${key}.wav`;
     audio.play();
 
     const keyPressed = document.querySelector(`[data-key="${key}"]`);
-    console.log(keyPressed.textContent + " funcionou");
 
     keyPressed.classList.add("active");
     setTimeout(() => {
     keyPressed.classList.remove("active");
     }, 150);
 };
-
-// for(let i = 0; i < keySelected.length; i++) {
-//     console.log(keySelected[i]);
-// }
 
 keySelected.forEach((key) => {
     key.addEventListener("click", () => {
@@ -36,23 +26,16 @@ keySelected.forEach((key) => {
     mappedKeys.push(key.dataset.key);
 });
 
-console.log(mappedKeys);
-
 document.addEventListener("keydown", (e) => {
     if(mappedKeys.includes(e.key)) {
         playSound(e.key);
-        console.log(e.key + " esta usando o keydown");
     }
 });
 
 volume.addEventListener("input", (e) => {
-    console.log(e.target.value);
     audio.volume = e.target.value;
 });
 
-checkedKeys.addEventListener("click", (e) => {
-    console.log(e.target.value);
+checkedKeys.addEventListener("click", () => {
     keySelected.forEach(key => key.classList.toggle("hide"));
-    keySelected.forEach(key => console.log(key));
-    console.log("Aqui termina o checkedKeys");
 }); 
